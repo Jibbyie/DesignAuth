@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background: #333;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+main {
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #f1f1f1;
+}
+
+@media (min-width: 768px) {
+    main {
+        padding: 40px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
