@@ -42,14 +42,26 @@ footer {
 }
 
 
+/* Center alignment for form container */
+.form-container {
+    text-align: center;
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+    /* Add space between heading and form */
+}
+
 form {
-    max-width: 500px;
     margin: 0 auto;
+    max-width: 500px;
+    /* Adjust form width */
+    text-align: left;
+    /* Align form content to the left */
     padding: 20px;
     background: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-
 }
 
 .form-group {
@@ -105,6 +117,47 @@ nav a:hover {
 #vision {
     display: none;
 }
+
+/* FAQ Search Box */
+#faq-search {
+    width: 100%;
+    max-width: 400px;
+    margin: 10px 0;
+    padding: 8px 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* FAQ Dropdown */
+#faq-dropdown {
+    list-style: none;
+    margin: 5px 0;
+    padding: 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: white;
+    max-width: 400px;
+    display: none;
+    position: relative;
+    z-index: 1000;
+}
+
+#faq-dropdown li {
+    padding: 8px 10px;
+    cursor: pointer;
+}
+
+#faq-dropdown li:hover {
+    background-color: #f0f0f0;
+}
+
+/* FAQ Result Section */
+#faq-result {
+    margin-top: 20px;
+    font-size: 16px;
+}
+
 
 /* Dropdown Notification Styles */
 .dropdown-notification {
@@ -178,6 +231,30 @@ button.theme-icon:hover {
 }
 
 
+body.dark-mode #faq-search {
+    background: #333;
+    /* Dark mode background */
+    color: white;
+    /* Dark mode text color */
+    border: 1px solid #555;
+    /* Dark mode border */
+}
+
+body.dark-mode #faq-dropdown {
+    background: #333;
+    /* Dark mode dropdown background */
+    color: white;
+    /* Dark mode text color */
+    border: 1px solid #555;
+    /* Dark mode border */
+}
+
+body.dark-mode #faq-dropdown li:hover {
+    background-color: #444;
+    /* Darker background on hover */
+}
+
+
 /* Notification Animation */
 @keyframes fadeInOut {
     0% {
@@ -214,6 +291,8 @@ button.theme-icon:hover {
         gap: 20px;
         /* Add 20px of space between grid rows and columns. */
     }
+
+
 
 }
 

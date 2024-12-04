@@ -41,22 +41,53 @@ document.addEventListener('DOMContentLoaded', () => {
         return { valid, errorMessage };
     }
 
-    // Contact Us Page: Form Validation
+    // Contact Us Page: Form Validation and Recent Submissions
     const contactForm = document.getElementById('contactForm');
+    const submissionsList = document.getElementById('submissions-list');
+
+    // Load existing submissions from localStorage
+    function loadSubmissions() {
+        const storedSubmissions = JSON.parse(localStorage.getItem('submissions')) || [];
+        storedSubmissions.forEach(({ name, email, message }) => {
+            const listItem = document.createElement('li');
+            listItem.textContent = `${name} - ${email}: ${message}`;
+            submissionsList.appendChild(listItem);
+        });
+    }
+
+    // Save a new submission to localStorage
+    function saveSubmission(name, email, message) {
+        const storedSubmissions = JSON.parse(localStorage.getItem('submissions')) || [];
+        storedSubmissions.push({ name, email, message });
+        localStorage.setItem('submissions', JSON.stringify(storedSubmissions));
+    }
+
+    // Initialize and handle form submission
     if (contactForm) {
+        loadSubmissions(); // Load existing submissions on page load
+
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const name = document.getElementById('name');
-            const email = document.getElementById('email');
-            const message = document.getElementById('message');
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
 
-            const { valid, errorMessage } = validateForm(name, email, message);
+            const { valid, errorMessage } = validateForm(
+                { value: name },
+                { value: email },
+                { value: message }
+            );
 
             if (!valid) {
                 alert(errorMessage);
             } else {
                 alert('Form submitted successfully!');
-                contactForm.reset();
+
+                // Save and display the new submission
+                saveSubmission(name, email, message);
+                const listItem = document.createElement('li');
+                listItem.textContent = `${name} - ${email}: ${message}`;
+                submissionsList.appendChild(listItem);
             }
         });
     }
@@ -111,36 +142,6 @@ document.addEventListener('DOMContentLoaded', () => {
         setInterval(updateTip, 5000); // Update every 5 seconds
     }
 
-    // About Page: FAQs
-    const faqs = [
-        { question: "What is sustainable travel?", answer: "Using eco-friendly travel options like bikes or public transport." },
-        { question: "Why choose biking?", answer: "It's healthy and reduces carbon emissions." }
-    ];
-
-    const faqSection = document.getElementById('faqs');
-    if (faqSection) {
-        faqSection.innerHTML = "<h2>FAQs</h2>";
-        faqs.forEach(({ question, answer }) => {
-            const faq = document.createElement('div');
-            faq.innerHTML = `<strong>${question}</strong><p>${answer}</p>`;
-            faqSection.appendChild(faq);
-        });
-    }
-
-    // Searchable FAQs
-    const faqSearchInput = document.getElementById('faq-search');
-    if (faqSearchInput) {
-        faqSearchInput.addEventListener('input', (event) => {
-            const searchTerm = event.target.value.toLowerCase();
-            const faqItems = faqSection.querySelectorAll('div');
-
-            faqItems.forEach(faq => {
-                const question = faq.querySelector('strong').textContent.toLowerCase();
-                faq.style.display = question.includes(searchTerm) ? 'block' : 'none';
-            });
-        });
-    }
-
     // Interactive Map using Leaflet
     const mapDiv = document.getElementById('map');
     if (mapDiv) {
@@ -181,6 +182,65 @@ document.addEventListener('DOMContentLoaded', () => {
     if (themeToggle) {
         themeToggle.addEventListener('click', toggleDarkMode);
     }
+
+    const faqs = [
+        { question: "What is sustainable travel?", answer: "Using eco-friendly travel options like bikes or public transport." },
+        { question: "Why choose biking?", answer: "It's healthy and reduces carbon emissions." },
+        { question: "How can I start sustainable travel?", answer: "Consider walking, cycling, or using public transport for short distances." }
+    ];
+
+    const faqSearchInput = document.getElementById('faq-search');
+    const faqDropdown = document.getElementById('faq-dropdown');
+    const faqResult = document.getElementById('faq-result');
+
+    // Populate the dropdown with all FAQs
+    function populateDropdown() {
+        faqDropdown.innerHTML = ''; // Clear existing dropdown items
+        faqs.forEach(({ question }, index) => {
+            const listItem = document.createElement('li');
+            listItem.textContent = question;
+            listItem.dataset.index = index; // Store index for retrieval
+            faqDropdown.appendChild(listItem);
+        });
+    }
+
+    // Display the selected FAQ in the result section
+    function displayFaq(index) {
+        const { question, answer } = faqs[index];
+        faqResult.innerHTML = `<strong>${question}</strong><p>${answer}</p>`;
+        faqDropdown.style.display = 'none'; // Hide dropdown after selection
+    }
+
+    // Show the dropdown when focusing on the search box
+    faqSearchInput.addEventListener('focus', () => {
+        populateDropdown();
+        faqDropdown.style.display = 'block';
+    });
+
+    // Filter the dropdown while typing in the search box
+    faqSearchInput.addEventListener('input', (event) => {
+        const searchTerm = event.target.value.toLowerCase();
+        populateDropdown(); // Reset dropdown
+        Array.from(faqDropdown.children).forEach((item) => {
+            const question = item.textContent.toLowerCase();
+            item.style.display = question.includes(searchTerm) ? 'block' : 'none';
+        });
+    });
+
+    // Handle FAQ selection from the dropdown
+    faqDropdown.addEventListener('click', (event) => {
+        if (event.target.tagName === 'LI') {
+            const index = event.target.dataset.index;
+            displayFaq(index);
+        }
+    });
+
+    // Hide dropdown when clicking outside
+    document.addEventListener('click', (event) => {
+        if (!faqSearchInput.contains(event.target) && !faqDropdown.contains(event.target)) {
+            faqDropdown.style.display = 'none';
+        }
+    });
 
 
 });
