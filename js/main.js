@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setTimeout(() => {
             notification.remove();
-        }, 3000);
+        }, 2000);
     }
 
     // Reusable Function: Validate Form
@@ -126,4 +126,61 @@ document.addEventListener('DOMContentLoaded', () => {
             faqSection.appendChild(faq);
         });
     }
+
+    // Searchable FAQs
+    const faqSearchInput = document.getElementById('faq-search');
+    if (faqSearchInput) {
+        faqSearchInput.addEventListener('input', (event) => {
+            const searchTerm = event.target.value.toLowerCase();
+            const faqItems = faqSection.querySelectorAll('div');
+
+            faqItems.forEach(faq => {
+                const question = faq.querySelector('strong').textContent.toLowerCase();
+                faq.style.display = question.includes(searchTerm) ? 'block' : 'none';
+            });
+        });
+    }
+
+    // Interactive Map using Leaflet
+    const mapDiv = document.getElementById('map');
+    if (mapDiv) {
+        const map = L.map('map').setView([53.349805, -6.26031], 13); // Dublin Coordinates
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Add marker
+        L.marker([53.349805, -6.26031]).addTo(map)
+            .bindPopup('Dublin City Center')
+            .openPopup();
+    }
+
+    // Reusable Function: Toggle Dark Mode
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+        document.querySelector('header').classList.toggle('dark-mode');
+        document.querySelector('footer').classList.toggle('dark-mode');
+        document.querySelector('nav').classList.toggle('dark-mode');
+
+        // Save preference to localStorage
+        const isDarkMode = document.body.classList.contains('dark-mode');
+        localStorage.setItem('dark-mode', isDarkMode ? 'enabled' : 'disabled');
+    }
+
+    // Apply Dark Mode on Page Load if Enabled
+    const savedTheme = localStorage.getItem('dark-mode');
+    if (savedTheme === 'enabled') {
+        document.body.classList.add('dark-mode');
+        document.querySelector('header').classList.add('dark-mode');
+        document.querySelector('footer').classList.add('dark-mode');
+        document.querySelector('nav').classList.add('dark-mode');
+    }
+
+    // Add Event Listener to Toggle Icon
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', toggleDarkMode);
+    }
+
+
 });
