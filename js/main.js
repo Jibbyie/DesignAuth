@@ -136,16 +136,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const tipsDiv = document.getElementById('travel-tips');
     if (tipsDiv) {
         const tips = [
-            "Use public transport whenever possible.",
-            "Consider walking or cycling short distances.",
-            "Carpool with friends to reduce emissions.",
-            "Plan your trips to minimise travel distances.",
-            "Use eco-friendly modes of transport like e-scooters or hybrid vehicles.",
-            "Combine errands into a single trip to save fuel and time.",
-            "Choose accommodations with sustainable practices when travelling.",
-            "Pack light to reduce vehicle weight and improve fuel efficiency.",
-            "Participate in local bike-share programmes when available.",
-            "Encourage your workplace to promote green commuting options."
+            "Whenever possible, take public transportation.",
+            "Think about short walks or bike rides.",
+            "To cut down on emissions, carpool with pals.",
+            "Arrange your travels to cut down on distance.",
+            "Make use of environmentally friendly transportation options, such as hybrid cars or e-scooters.",
+            "To save time and fuel, run all of your errands in one trip.",
+            "When traveling, pick lodgings that follow sustainable methods.",
+            "Reduce the weight of your car and increase its fuel efficiency by packing light.",
+            "When possible, take use of local bike-share programs.",
+            "Encourage your place of employment to support eco-friendly transportation options.",
         ];
 
         let currentTipIndex = 0;
@@ -201,16 +201,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const faqs = [
-        { question: "What is sustainable travel?", answer: "Using eco-friendly travel options like bikes or public transport." },
-        { question: "Why choose biking?", answer: "It's healthy and reduces carbon emissions." },
-        { question: "How can I start sustainable travel?", answer: "Consider walking, cycling, or using public transport for short distances." },
-        { question: "What are the benefits of carpooling?", answer: "Carpooling reduces emissions, saves fuel costs, and decreases traffic congestion." },
-        { question: "How does packing light help sustainability?", answer: "Packing light reduces vehicle weight, improving fuel efficiency and reducing emissions." },
-        { question: "What is a bike-share programme?", answer: "A service providing shared bicycles for short-term use, often found in urban areas." },
-        { question: "What is green commuting?", answer: "Green commuting involves using sustainable transportation options like walking, cycling, or public transit." },
-        { question: "How can I find eco-friendly accommodations?", answer: "Look for certifications like LEED or Green Key when booking hotels." },
-        { question: "What is the best way to reduce my carbon footprint while travelling?", answer: "Choose public transport, avoid single-use plastics, and support local, sustainable businesses." },
-        { question: "Can electric vehicles contribute to sustainable travel?", answer: "Yes, they produce zero tailpipe emissions and can be powered by renewable energy sources." }
+        { question: "Sustainable travel: what is it?", answer: "Utilising eco-friendly modes of transportation, such as bicycles or public transportation." },
+        { question: "Why go for a bike?", answer: "It lowers carbon emissions and is healthy." },
+        { question: "How can I begin travelling sustainably?", answer: "For short distances, think about walking, cycling, or taking public transportation." },
+        { question: "What advantages can carpooling offer?", answer: "Carpooling lessens traffic congestion, lowers pollution, and saves money on petrol." },
+        { question: "In what ways does packing light contribute to sustainability?", answer: "Light packing lowers the weight of the vehicle, increasing fuel economy and lowering pollutants." },
+        { question: "A bike-share programme: what is it?", answer: "A short-term bicycle sharing service that is frequently available in cities." },
+        { question: "Green commuting: what is it?", answer: "Using environmentally friendly modes of transportation, such as walking, bicycling, or public transportation, is known as 'green commuting.'" },
+        { question: "How can I locate lodging that is environmentally friendly?", answer: "When making hotel reservations, look for certifications like LEED or Green Key." },
+        { question: "How can I minimise my carbon footprint while travelling?", answer: "Avoid single-use plastics, take public transportation, and patronise sustainable, local companies." },
+        { question: "Can eco-friendly travel be facilitated by electric vehicles?", answer: "Indeed, they can be fuelled by renewable energy sources and emit no tailpipe emissions." }
     ];
 
 
