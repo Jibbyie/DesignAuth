@@ -1,9 +1,48 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Contact Us Page: Form Validation and Recent Submissions
-    const contactForm = document.getElementById('contactForm');
-    const submissionsList = document.getElementById('submissions-list');
-    const submissions = [];
+    // Reusable Function: Toggle Visibility
+    function toggleVisibility(section1, section2) {
+        const isHidden = section1.style.display === 'none';
+        section1.style.display = isHidden ? 'block' : 'none';
+        section2.style.display = isHidden ? 'block' : 'none';
+    }
 
+    // Reusable Function: Show Notification
+    function showNotification(message) {
+        const notification = document.createElement('div');
+        notification.textContent = message;
+        notification.className = 'dropdown-notification';
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+            notification.remove();
+        }, 3000);
+    }
+
+    // Reusable Function: Validate Form
+    function validateForm(name, email, message) {
+        let valid = true;
+        let errorMessage = '';
+
+        if (!name.value.trim()) {
+            errorMessage += 'Name is required.\n';
+            valid = false;
+        }
+
+        if (!email.value.trim() || !/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/.test(email.value)) {
+            errorMessage += 'Valid email is required.\n';
+            valid = false;
+        }
+
+        if (!message.value.trim()) {
+            errorMessage += 'Message cannot be empty.\n';
+            valid = false;
+        }
+
+        return { valid, errorMessage };
+    }
+
+    // Contact Us Page: Form Validation
+    const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -11,46 +50,18 @@ document.addEventListener('DOMContentLoaded', () => {
             const email = document.getElementById('email');
             const message = document.getElementById('message');
 
-            let valid = true;
-            let errorMessage = '';
-
-            // Validate Name
-            if (!name.value.trim()) {
-                errorMessage += 'Name is required.\n';
-                valid = false;
-            }
-
-            // Validate Email
-            if (!email.value.trim() || !/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/.test(email.value)) {
-                errorMessage += 'Valid email is required.\n';
-                valid = false;
-            }
-
-            // Validate Message
-            if (!message.value.trim()) {
-                errorMessage += 'Message cannot be empty.\n';
-                valid = false;
-            }
+            const { valid, errorMessage } = validateForm(name, email, message);
 
             if (!valid) {
                 alert(errorMessage);
             } else {
                 alert('Form submitted successfully!');
-
-                // Store the submission in the array
-                submissions.push({ name: name.value, message: message.value });
-
-                // Update the recent submissions list
-                const listItem = document.createElement('li');
-                listItem.textContent = `${name.value}: ${message.value}`;
-                submissionsList.appendChild(listItem);
-
                 contactForm.reset();
             }
         });
     }
 
-    // Services Page: Dropdown Event with Dynamic Options
+    // Services Page: Dropdown Event
     const bikeDropdown = document.getElementById('bike-type');
     const bikeOptions = ["Road Bike", "Mountain Bike", "Hybrid Bike"];
 
@@ -66,17 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Add dropdown change event
         bikeDropdown.addEventListener('change', (event) => {
             const selectedValue = event.target.options[event.target.selectedIndex].text;
-
-            // Display a custom notification
-            const notification = document.createElement('div');
-            notification.textContent = `You selected: ${selectedValue}`;
-            notification.className = 'dropdown-notification';
-            document.body.appendChild(notification);
-
-            // Remove notification after 3 seconds
-            setTimeout(() => {
-                notification.remove();
-            }, 3000);
+            showNotification(`You selected: ${selectedValue}`);
         });
     }
 
@@ -87,11 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const visionSection = document.querySelector('h2:nth-of-type(2) + p');  // "Our Vision" paragraph
 
         toggleVisionButton.addEventListener('click', () => {
-            const isHidden = missionSection.style.display === 'none';
-
-            // Toggle visibility for both sections
-            missionSection.style.display = isHidden ? 'block' : 'none';
-            visionSection.style.display = isHidden ? 'block' : 'none';
+            toggleVisibility(missionSection, visionSection);
         });
     }
 
