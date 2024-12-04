@@ -115,13 +115,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // About Page: Toggle Visibility
     const toggleVisionButton = document.getElementById('toggle-vision');
     if (toggleVisionButton) {
-        const missionSection = document.querySelector('h2:nth-of-type(1) + p'); // "Our Mission" paragraph
-        const visionSection = document.querySelector('h2:nth-of-type(2) + p');  // "Our Vision" paragraph
+        const missionText = document.getElementById('mission'); // Target "Our Mission" paragraph
+        const visionText = document.getElementById('vision');   // Target "Our Vision" paragraph
+
+        // Set initial visibility to hidden
+        missionText.style.display = 'none';
+        visionText.style.display = 'none';
 
         toggleVisionButton.addEventListener('click', () => {
-            toggleVisibility(missionSection, visionSection);
+            // Toggle visibility of the paragraphs
+            const isHidden = missionText.style.display === 'none';
+            missionText.style.display = isHidden ? 'block' : 'none';
+            visionText.style.display = isHidden ? 'block' : 'none';
         });
     }
+
+
 
     // Home Page: Dynamic Travel Tips
     const tipsDiv = document.getElementById('travel-tips');

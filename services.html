@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="js/main.js"></script>
     <title>Services</title>
@@ -19,24 +20,130 @@
             <a href="about.html">About</a>
             <a href="services.html" class="active">Services</a>
             <a href="contact.html">Contact</a>
+            <button id="theme-toggle" class="theme-icon" title="Toggle Dark Mode"><i class="fa fa-lightbulb-o"></i>
+            </button>
         </nav>
     </header>
     <main>
+        <!-- Introduction Section -->
+        <section>
+            <h2>Explore Our Services</h2>
+            <p>
+                We at Sustainable Travel provide a wide range of services to assist you in making more informed
+                decisions about your commute.
+                Our mission is to streamline eco-friendly travel so that it is not only convenient and pleasurable for
+                all, but also ecologically friendly.
+            </p>
+            <p>
+                Whether you are a staff member, student, or member of the community, our services are intended to
+                support your path to a more environmentally friendly future. We are available to assist you with every
+                stage of your journey, from reasonably priced bike rentals to state-of-the-art route planning software.
+            </p>
+        </section>
+
+
+        <!-- Bike Rentals Section -->
         <section>
             <h2>Bike Rentals</h2>
-            <label for="bike-type">Choose a bike type:</label>
+            <p>
+                One of the most effective and environmentally friendly methods to commute is by bicycle. We provide a
+                range of rental alternatives that are suited to your needs in order to make biking accessible to
+                everyone:
+
+
+            </p>
+            <ul>
+                <li><strong>Road Bikes:</strong> Perfect for long commutes and efficient travel.</li>
+                <li><strong>Mountain Bikes:</strong> Ideal for rugged terrain and outdoor adventures.</li>
+                <li><strong>Hybrid Bikes:</strong> A versatile option for urban and campus commuting.</li>
+            </ul>
+            <label for="bike-type">Select a bike type to get started:</label>
             <select id="bike-type" name="bike-type">
                 <!-- Options are dynamically generated -->
             </select>
-            <p>Affordable bike rentals available for students and staff on campus.</p>
+            <p>
+                Our bike rentals are affordable, dependable, and handy. Everything you need to make riding your primary
+                mode of transportation will be available to you, including maintenance support and flexible rental
+                terms.
+            </p>
         </section>
+
+
+        <!-- Route Planning Section -->
         <section>
             <h2>Route Planning</h2>
-            <p>Interactive maps to help plan your sustainable commute with ease.</p>
+            <p>
+                Our route planning tools make it simple to organize your commute. Whether you prefer
+                walking, bicycle, or public transportation, we provide the resources you need to plan the most efficient
+                and environmentally friendly trips.
+            </p>
+            <ul>
+                <li><strong>Walking and Cycling:</strong> Discover the safest and most scenic routes to your
+                    destination.</li>
+                <li><strong>Public Transport:</strong>Get up-to-date bus, luas and train schedules and route maps.</li>
+                <li><strong>Multi-Modal Options:</strong>For longer commutes, combine riding a bike with public
+                    transportation.
+                    You may begin your day with confidence, knowing that you're choosing the best course of action for
+                    both the environment and your schedule.</li>
+            </ul>
+            <p>
+                Knowing that you're making the best decisions for the environment and your schedule, you can start your
+                day with confidence.
+            </p>
         </section>
+
+
+        <!-- Interactive Route Map Section -->
         <section>
             <h2>Interactive Route Map</h2>
+            <p>
+                Visualise your journey with our state-of-the-art interactive route map. This tool is designed to help
+                you
+                explore:
+            </p>
+            <ul>
+                <li>Bike-friendly paths and lanes in your area.</li>
+                <li>Nearby amenities such as bike repair stations and rest stops.</li>
+                <li>Public transport hubs and connections.</li>
+            </ul>
+            <p>
+                Whether you’re commuting to campus or exploring new routes, our map makes it easy to plan your
+                eco-friendly
+                journey.
+            </p>
             <div id="map" style="width: 100%; height: 400px;"></div>
+        </section>
+
+        <!-- Join Our Community Initiatives -->
+        <section>
+            <h2>Join Our Community Initiatives</h2>
+            <p>
+                Sustainable travel is a movement rather than only a decision. We invite you to take part in our
+                neighborhood-based programs, which are intended to motivate action and promote relationships:
+            </p>
+            <ul>
+                <li><strong>Step Challenges:</strong> Monitor your progress, engage in peer competition, and adopt an
+                    active commute.</li>
+                <li><strong>Cycle Challenges:</strong> Participate in campus-wide cycling events, log your rides, and
+                    set personal goals.</li>
+                <li><strong>Sustainable Commuting Workshops:</strong> Get advice on how to make eco-friendly travel a
+                    part of your everyday routine.</li>
+            </ul>
+            <p>
+                By working together, we can foster a sustainable culture and encourage people to choose more wisely when
+                they travel.
+            </p>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section>
+            <h2>Take Action</h2>
+            <p>
+                Are you prepared to change? Examine the services we provide and become a part of the shift to a more
+                sustainable future. We are available to help you at any stage, whether you are planning a new route,
+                trying riding for the first time, or participating in community projects.
+            </p>
+            <a href="contact.html" class="btn">Contact Us to Get Started</a>
         </section>
 
     </main>

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="js/main.js"></script>
     <title>About Us</title>
 </head>
@@ -17,19 +18,73 @@
             <a href="about.html" class="active">About</a>
             <a href="services.html">Services</a>
             <a href="contact.html">Contact</a>
+            <button id="theme-toggle" class="theme-icon" title="Toggle Dark Mode"><i class="fa fa-lightbulb-o"></i>
+            </button>
         </nav>
     </header>
     <main>
+        <!-- Introduction Section -->
         <section>
-            <button id="toggle-vision">Toggle Our Goals</button>
-            <h2>Our Mission</h2>
-            <p id="mission">We aim to promote sustainable travel by providing eco-friendly travel solutions for students
-                and staff.</p>
-            <h2>Our Vision</h2>
-            <p id="vision">Creating a cleaner, greener, and healthier world through smarter travel choices.</p>
+            <h2>Who We Are</h2>
+            <p>
+                Our goal at Sustainable Travel is to completely transform worker and student commutes by making them
+                healthier, more environmentally friendly, and more sustainable. We are here to help you make that
+                decision because we think that every journey can help create a cleaner planet.
+            </p>
+            <p>
+                The United Nations Sustainable Development Goals (SDGs), especially Goals #11: Sustainable Cities and
+                Communities and #13: Climate Action, serve as a direct inspiration for our work. We are contributing to
+                the development of a future in which cities are not just operational but also ecologically conscious by
+                encouraging eco-friendly travel practices.
+            </p>
+            <p>
+                Our offerings, which range from interactive route planning tools to cycling campaigns, enable people to
+                take action and change the world one journey at a time.
+            </p>
         </section>
+
+
+        <!-- Mission and Vision Section -->
         <section>
-            <h2>FAQs</h2>
+            <h2>Our Mission and Vision</h2>
+            <button id="toggle-vision">Toggle Our Goals</button>
+            <div id="goals">
+                <h3>Our Mission</h3>
+                <p id="mission">
+                    Our goal is straightforward but significant: to lessen dependency on conventional modes of
+                    transportation by offering affordable, practical, and environmentally friendly travel options. Our
+                    goal is to establish a culture of mindful commuting that puts the health of people and the
+                    environment first via education, involvement, and action.
+                </p>
+                <h3>Our Vision</h3>
+                <p id="vision">
+                    In our ideal future, environmentally sustainable travel will be the rule rather than the exception.
+                    We are creating resilient cities, healthier communities, and a society where everyone can live in
+                    peace with the environment by encouraging sustainable practices now.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Our Core Values</h2>
+            <p>At Sustainable Travel, everything we do is guided by these principles:</p>
+            <ul>
+                <li><strong>Innovation:</strong> constantly looking for new methods to make environmentally friendly
+                    travel appealing and accessible.</li>
+                <li><strong>Community:</strong> establishing solid linkages between people, cities, and campuses in
+                    order to promote a common dedication to sustainability.</li>
+                <li><strong>Health:</strong> promoting active commuting choices, such as cycling and walking, to enhance
+                    both mental and physical health.</li>
+                <li><strong>Responsibility:</strong> lowering emissions and promoting ecologically friendly decisions in
+                    order to support the global climate goals.</li>
+            </ul>
+        </section>
+
+
+        <!-- FAQs Section -->
+        <section>
+            <h2>Frequently Asked Questions</h2>
+            <p>Have questions about how we operate or how you can get involved? Start here to find answers.</p>
             <input type="text" id="faq-search" placeholder="Search FAQs..." />
             <ul id="faq-dropdown" style="display: none;"></ul>
             <div id="faq-result"></div>
