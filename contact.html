@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js"></script>
     <title>Contact Us</title>
 </head>
 
@@ -35,9 +36,19 @@
                     <textarea id="message" name="message" placeholder="Your message..." rows="5" required></textarea>
                 </div>
                 <div class="form-group">
+                    <label for="preferred-contact">Preferred Contact Method:</label>
+                    <input type="text" id="preferred-contact" name="preferred-contact"
+                        placeholder="e.g., Phone or Email">
+                </div>
+                <div class="form-group">
                     <button type="submit">Submit</button>
                 </div>
+
             </form>
+        </section>
+        <section id="recent-submissions">
+            <h2>Recent Submissions</h2>
+            <ul id="submissions-list"></ul>
         </section>
     </main>
     <footer>

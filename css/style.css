@@ -1,7 +1,10 @@
-body {
+body,
+html {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    height: 100%;
+    /* Ensure the body and HTML take up the full height */
 }
 
 header {
@@ -92,6 +95,56 @@ button:hover {
 
 }
 
+nav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+#mission,
+#vision {
+    display: none;
+}
+
+/* Dropdown Notification Styles */
+.dropdown-notification {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    text-align: center;
+    animation: fadeInOut 3s ease-in-out;
+}
+
+/* Notification Animation */
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+
+    10% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+
+    90% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+}
+
 @media (min-width: 768px) {
 
     /* Apply the following styles only when the viewport is at least 768px wide (e.g., tablets and larger screens). */
@@ -104,5 +157,19 @@ button:hover {
         /* Create two equal-width columns in the grid. */
         gap: 20px;
         /* Add 20px of space between grid rows and columns. */
+    }
+
+}
+
+/* Specific fixes for smaller devices */
+@media (max-width: 768px) {
+    footer {
+        position: static;
+        /* Ensure footer scrolls with content */
+    }
+
+    main {
+        margin-bottom: 0;
+        /* Reset bottom margin for small screens */
     }
 }
