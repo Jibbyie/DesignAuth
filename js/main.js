@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 2000);
     }
 
+
     // Reusable Function: Validate Form
     function validateForm(name, email, message) {
         let valid = true;
@@ -130,8 +131,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-
-
     // Home Page: Dynamic Travel Tips
     const tipsDiv = document.getElementById('travel-tips');
     if (tipsDiv) {
@@ -218,54 +217,71 @@ document.addEventListener('DOMContentLoaded', () => {
     const faqDropdown = document.getElementById('faq-dropdown');
     const faqResult = document.getElementById('faq-result');
 
-    // Populate the dropdown with all FAQs
-    function populateDropdown() {
-        faqDropdown.innerHTML = ''; // Clear existing dropdown items
-        faqs.forEach(({ question }, index) => {
-            const listItem = document.createElement('li');
-            listItem.textContent = question;
-            listItem.dataset.index = index; // Store index for retrieval
-            faqDropdown.appendChild(listItem);
+    // Ensure elements exist before attaching event listeners
+    if (faqSearchInput && faqDropdown && faqResult) {
+        // Populate the dropdown with all FAQs
+        function populateDropdown() {
+            faqDropdown.innerHTML = ''; // Clear existing dropdown items
+            faqs.forEach(({ question }, index) => {
+                const listItem = document.createElement('li');
+                listItem.textContent = question;
+                listItem.dataset.index = index; // Store index for retrieval
+                faqDropdown.appendChild(listItem);
+            });
+        }
+
+        // Display the selected FAQ in the result section
+        function displayFaq(index) {
+            const { question, answer } = faqs[index];
+            faqResult.innerHTML = `<strong>${question}</strong><p>${answer}</p>`;
+            faqDropdown.style.display = 'none'; // Hide dropdown after selection
+        }
+
+        // Show the dropdown when focusing on the search box
+        faqSearchInput.addEventListener('focus', () => {
+            populateDropdown();
+            faqDropdown.style.display = 'block';
+        });
+
+        // Filter the dropdown while typing in the search box
+        faqSearchInput.addEventListener('input', (event) => {
+            const searchTerm = event.target.value.toLowerCase();
+            populateDropdown(); // Reset dropdown
+            Array.from(faqDropdown.children).forEach((item) => {
+                const question = item.textContent.toLowerCase();
+                item.style.display = question.includes(searchTerm) ? 'block' : 'none';
+            });
+        });
+
+        // Handle FAQ selection from the dropdown
+        faqDropdown.addEventListener('click', (event) => {
+            if (event.target.tagName === 'LI') {
+                const index = event.target.dataset.index;
+                displayFaq(index);
+            }
+        });
+
+        // Hide dropdown when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!faqSearchInput.contains(event.target) && !faqDropdown.contains(event.target)) {
+                faqDropdown.style.display = 'none';
+            }
         });
     }
 
-    // Display the selected FAQ in the result section
-    function displayFaq(index) {
-        const { question, answer } = faqs[index];
-        faqResult.innerHTML = `<strong>${question}</strong><p>${answer}</p>`;
-        faqDropdown.style.display = 'none'; // Hide dropdown after selection
-    }
+    const navbarToggle = document.getElementById('toggle-navbar');
+    const nav = document.getElementById('main-nav');
 
-    // Show the dropdown when focusing on the search box
-    faqSearchInput.addEventListener('focus', () => {
-        populateDropdown();
-        faqDropdown.style.display = 'block';
-    });
-
-    // Filter the dropdown while typing in the search box
-    faqSearchInput.addEventListener('input', (event) => {
-        const searchTerm = event.target.value.toLowerCase();
-        populateDropdown(); // Reset dropdown
-        Array.from(faqDropdown.children).forEach((item) => {
-            const question = item.textContent.toLowerCase();
-            item.style.display = question.includes(searchTerm) ? 'block' : 'none';
+    // Ensure elements exist before adding event listeners or modifying class
+    if (navbarToggle && nav) {
+        navbarToggle.addEventListener('click', () => {
+            nav.classList.toggle('hidden');
         });
-    });
 
-    // Handle FAQ selection from the dropdown
-    faqDropdown.addEventListener('click', (event) => {
-        if (event.target.tagName === 'LI') {
-            const index = event.target.dataset.index;
-            displayFaq(index);
+        // Apply the "hidden" class by default on mobile screens
+        if (window.innerWidth <= 768) {
+            nav.classList.add('hidden');
         }
-    });
-
-    // Hide dropdown when clicking outside
-    document.addEventListener('click', (event) => {
-        if (!faqSearchInput.contains(event.target) && !faqDropdown.contains(event.target)) {
-            faqDropdown.style.display = 'none';
-        }
-    });
-
+    }
 
 });

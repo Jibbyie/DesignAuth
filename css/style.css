@@ -1,94 +1,143 @@
 /* Global Reset */
 body,
 html {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     height: 100%;
     overflow-x: hidden;
-    /* Prevent horizontal scrolling */
+    overscroll-behavior: none; /* Prevent browser's default overscroll effects */
+    touch-action: manipulation; /* Prevent unintended gestures on touch devices */
+    line-height: 1.6;
 }
 
 /* Header */
 header {
-    background: #4CAF50;
+    background-color: #4CAF50;
     color: white;
     text-align: center;
-    padding: 15px;
+    padding: 15px 0;
+    font-size: 1.2rem;
 }
 
-/* Navigation Bar */
+/* Header Styling for Mobile */
+header h1 {
+    border-bottom: 1px solid white;
+    padding-bottom: 10px;
+}
+
+/* Navigation Bar (Integrated with Header) */
 nav {
     display: flex;
     justify-content: center;
-    background: #333;
+    gap: 15px;
+    padding: 10px 0;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    padding: 10px 15px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 15px;
 }
 
 nav a:hover {
-    background-color: #ddd;
-    color: black;
+    color: yellow;
 }
+
+/* Mobile-Only Navbar Toggle Button */
+#toggle-navbar {
+    display: none;
+    position: sticky;
+    top: 0;
+    right: 10px;
+    z-index: 1000;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#toggle-navbar:hover {
+    background: #45a049;
+    /* Match hover effect for buttons */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    /* Slightly more pronounced shadow */
+}
+
+
+/* Hidden class to hide the nav */
+.hidden {
+    display: none;
+}
+
 
 /* Main Content */
 main {
     padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    line-height: 1.8;
 }
 
 /* Footer */
 footer {
     text-align: center;
-    padding: 10px;
+    padding: 15px 10px;
     background: #f1f1f1;
     width: 100%;
     position: sticky;
     bottom: 0;
     z-index: 1000;
+    font-size: 0.9rem;
+    color: #333;
+    border-top: 1px solid #ccc;
 }
 
 /* Form Styling */
-.form-container {
-    text-align: center;
-}
-
-.form-container h2 {
-    margin-bottom: 20px;
-    /* Space between heading and form */
-}
-
 form {
     margin: 0 auto;
     max-width: 500px;
     padding: 20px;
     background: #f9f9f9;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 label {
     display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: black;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #222;
 }
 
 input,
 textarea {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 16px;
+    font-size: 15px;
     box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    outline: none;
 }
 
 textarea {
@@ -97,56 +146,73 @@ textarea {
 
 button {
     width: 100%;
-    padding: 10px 15px;
+    padding: 12px 16px;
     background: #4CAF50;
     color: white;
-    font-size: 16px;
+    font-size: 15px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 button:hover {
     background: #45a049;
+    transform: scale(1.02);
 }
+
 
 /* FAQ Section */
 #faq-search {
     width: 100%;
     max-width: 400px;
-    margin: 10px 0;
-    padding: 8px 10px;
+    margin: 12px 0;
+    padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#faq-search:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    outline: none;
 }
 
 #faq-dropdown {
     list-style: none;
-    margin: 5px 0;
+    margin: 10px 0;
     padding: 0;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 6px;
     background: white;
     max-width: 400px;
     display: none;
     position: relative;
     z-index: 1000;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 #faq-dropdown li {
-    padding: 8px 10px;
+    padding: 12px 15px;
+    font-size: 15px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 #faq-dropdown li:hover {
-    background-color: #f0f0f0;
+    background-color: #f9f9f9;
 }
 
 #faq-result {
     margin-top: 20px;
     font-size: 16px;
+    line-height: 1.6;
+    color: black;
 }
+
 
 /* Notification */
 .dropdown-notification {
@@ -157,12 +223,13 @@ button:hover {
     background-color: #4CAF50;
     color: white;
     font-size: 16px;
-    padding: 20px 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     z-index: 1000;
     text-align: center;
     animation: fadeInOut 3s ease-in-out;
+    transition: transform 0.3s, opacity 0.3s;
 }
 
 /* Dark Mode */
@@ -175,8 +242,10 @@ header.dark-mode,
 footer.dark-mode,
 nav.dark-mode {
     background-color: #1e1e1e;
+    color: white;
 }
 
+/* Buttons in Dark Mode */
 body.dark-mode button {
     background-color: #555;
     color: white;
@@ -186,6 +255,29 @@ body.dark-mode button:hover {
     background-color: #777;
 }
 
+/* Form in Dark Mode */
+body.dark-mode form {
+    background-color: #1e1e1e;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode label {
+    color: white;
+}
+
+body.dark-mode input,
+body.dark-mode textarea {
+    background-color: #333;
+    color: white;
+    border: 1px solid #555;
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+    color: #999;
+}
+
+/* FAQ Section in Dark Mode */
 body.dark-mode #faq-search,
 body.dark-mode #faq-dropdown {
     background: #333;
@@ -193,10 +285,25 @@ body.dark-mode #faq-dropdown {
     border: 1px solid #555;
 }
 
+
+/* FAQ Text - Dark Mode */
+body.dark-mode #faq-result,
+body.dark-mode #faq-dropdown li {
+    color: white;
+}
+
 body.dark-mode #faq-dropdown li:hover {
     background-color: #444;
 }
 
+/* Notification in Dark Mode */
+body.dark-mode .dropdown-notification {
+    background-color: #555;
+    color: white;
+    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.1);
+}
+
+/* Theme Toggle Button */
 button.theme-icon {
     width: auto;
     background: none;
@@ -209,6 +316,44 @@ button.theme-icon {
 button.theme-icon:hover {
     color: #FFD700;
 }
+
+/* Footer Links in Dark Mode */
+footer.dark-mode a {
+    color: #CCCCCC;
+}
+
+footer.dark-mode a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Responsive Form Adjustments for Dark Mode */
+body.dark-mode .form-container h2 {
+    color: white;
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group textarea {
+    background-color: #333;
+    border: 1px solid #555;
+    color: white;
+}
+
+body.dark-mode .form-group input::placeholder,
+body.dark-mode .form-group textarea::placeholder {
+    color: #999;
+}
+
+/* Dark Mode Styling */
+body.dark-mode #toggle-navbar {
+    background: #555;
+    color: white;
+}
+
+body.dark-mode #toggle-navbar:hover {
+    background: #777;
+}
+
 
 /* Animations */
 @keyframes fadeInOut {
@@ -237,13 +382,58 @@ button.theme-icon:hover {
 }
 
 @media (max-width: 768px) {
-    footer {
-        position: static;
-        /* Allow footer to scroll with content */
+    header {
+        font-size: 0.65rem;
+        /* Adjust font size for smaller screens */
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background-color: #4CAF50;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+        border-bottom: 1px solid white;
+    }
+
+    #toggle-navbar {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+        padding: 5px;
+    }
+
+    nav a {
+        display: block;
+        width: 100%;
+        padding: 10px 5px;
+        text-align: left;
+        border-bottom: 1px solid white;
+        margin-bottom: 5px;
+    }
+
+    /* Active Navbar Link */
+    nav a.active {
+        background-color: #FFD700;
+        color: black;
     }
 
     main {
-        margin-bottom: 0;
-        /* Reset bottom margin */
+        padding: 20px;
+        margin-bottom: 20px;
+        /* Adjust bottom margin for spacing */
+    }
+
+    footer {
+        position: static;
+        /* Ensure footer is below all content */
+        padding: 15px;
+        font-size: 0.9rem;
+        /* Slightly smaller footer text for mobile */
     }
 }
