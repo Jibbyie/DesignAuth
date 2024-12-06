@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // Reusable Function: Validate Form
-    function validateForm(name, email, message) {
+    function validateForm(name, email, message, phone) {
         let valid = true;
         let errorMessage = '';
 
@@ -39,6 +39,11 @@ document.addEventListener('DOMContentLoaded', () => {
             valid = false;
         }
 
+        if (!phone.value.trim()) {
+            errorMessage += 'Phone number is required.\n';
+            valid = false;
+        }
+
         return { valid, errorMessage };
     }
 
@@ -49,17 +54,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load existing submissions from localStorage
     function loadSubmissions() {
         const storedSubmissions = JSON.parse(localStorage.getItem('submissions')) || [];
-        storedSubmissions.forEach(({ name, email, message }) => {
+        storedSubmissions.forEach(({ name, email, message, phone }) => {
             const listItem = document.createElement('li');
-            listItem.textContent = `${name} - ${email}: ${message}`;
+            listItem.textContent = `${name} - ${phone} - ${email}: ${message}`;
             submissionsList.appendChild(listItem);
         });
     }
 
     // Save a new submission to localStorage
-    function saveSubmission(name, email, message) {
+    function saveSubmission(name, email, message, phone) {
         const storedSubmissions = JSON.parse(localStorage.getItem('submissions')) || [];
-        storedSubmissions.push({ name, email, message });
+        storedSubmissions.push({ name, email, message, phone });
         localStorage.setItem('submissions', JSON.stringify(storedSubmissions));
     }
 
@@ -72,11 +77,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
+            const phone = document.getElementById('phone').value;
 
             const { valid, errorMessage } = validateForm(
                 { value: name },
                 { value: email },
-                { value: message }
+                { value: message },
+                { value: phone }
             );
 
             if (!valid) {
@@ -85,9 +92,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert('Form submitted successfully!');
 
                 // Save and display the new submission
-                saveSubmission(name, email, message);
+                saveSubmission(name, email, message, phone);
                 const listItem = document.createElement('li');
-                listItem.textContent = `${name} - ${email}: ${message}`;
+                listItem.textContent = `${name} - ${phone} - ${email}: ${message}`;
                 submissionsList.appendChild(listItem);
             }
         });
