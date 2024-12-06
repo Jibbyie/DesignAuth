@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Reusable Function: Toggle Visibility
+    // Reusable Function: Toggle Visibility - not used
     function toggleVisibility(section1, section2) {
         const isHidden = section1.style.display === 'none';
         section1.style.display = isHidden ? 'block' : 'none';
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "Arrange your travels to cut down on distance.",
             "Make use of environmentally friendly transportation options, such as hybrid cars or e-scooters.",
             "To save time and fuel, run all of your errands in one trip.",
-            "When traveling, pick lodgings that follow sustainable methods.",
+            "When travelling, pick lodgings that follow sustainable methods.",
             "Reduce the weight of your car and increase its fuel efficiency by packing light.",
             "When possible, take use of local bike-share programs.",
             "Encourage your place of employment to support eco-friendly transportation options.",
@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         updateTip();
-        setInterval(updateTip, 5000); // Update every 5 seconds
+        setInterval(updateTip, 3000); // Update every 3 seconds
     }
 
     // Interactive Map using Leaflet

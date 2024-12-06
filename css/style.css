@@ -16,12 +16,17 @@ header {
     background-color: #4CAF50;
     color: white;
     text-align: center;
-    padding: 5px 0;
-    font-size: 1.2rem;
+    padding: 1px 0;
+    font-size: 1.4rem;
 }
 
 /* Header Styling for Mobile */
 header h1 {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    position: relative;
+    text-align: center;
     border-bottom: 1px solid white;
     padding-bottom: 10px;
 }
@@ -49,17 +54,15 @@ nav a:hover {
 /* Mobile-Only Navbar Toggle Button */
 #toggle-navbar {
     display: none;
-    position: sticky;
-    top: 0;
-    right: 10px;
+    position: absolute;
+    right: 20px;
+    padding: 5px 5px;
     z-index: 1000;
     background: #4CAF50;
     color: white;
     border: none;
-    padding: 8px 12px;
     font-size: 1.2rem;
     border-radius: 5px;
-    cursor: pointer;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     /* Subtle shadow for depth */
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
@@ -67,9 +70,7 @@ nav a:hover {
 
 #toggle-navbar:hover {
     background: #45a049;
-    /* Match hover effect for buttons */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
-    /* Slightly more pronounced shadow */
 }
 
 
@@ -113,6 +114,11 @@ form {
 
 .form-group {
     margin-bottom: 20px;
+}
+
+#travel-tips
+{
+    font-size: 1.0rem;
 }
 
 label {
