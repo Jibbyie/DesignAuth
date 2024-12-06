@@ -144,21 +144,45 @@ document.addEventListener('DOMContentLoaded', () => {
         const tips = [
             "Whenever possible, take public transportation.",
             "Think about short walks or bike rides.",
-            "To cut down on emissions, carpool with pals.",
+            "To cut down on emissions, carpool with friends.",
             "Arrange your travels to cut down on distance.",
             "Make use of environmentally friendly transportation options, such as hybrid cars or e-scooters.",
-            "To save time and fuel, run all of your errands in one trip.",
+            "To save time and petrol, run all of your errands in one trip.",
             "When travelling, pick lodgings that follow sustainable methods.",
             "Reduce the weight of your car and increase its fuel efficiency by packing light.",
             "When possible, take use of local bike-share programs.",
             "Encourage your place of employment to support eco-friendly transportation options.",
+            "Switch off your car engine when idle.",
+            "Carry a reusable water bottle.",
+            "Support local eco-friendly businesses.",
+            "Plan your trips to avoid peak hours.",
+            "Opt for direct flights to cut emissions.",
+            "Share rides to reduce traffic and costs.",
+            "Walk instead of driving short distances.",
+            "Use public transport apps to plan routes.",
+            "Recycle waste while on the go.",
+            "Choose renewable energy-powered vehicles.",
+            "Avoid using plastic bags while shopping.",
+            "Explore nature trails on foot.",
+            "Support sustainable tourism initiatives.",
+            "Limit air travel when possible.",
+            "Choose electric or hybrid cars for rentals.",
+            "Switch to digital tickets to save paper.",
+            "Avoid single-use plastics while travelling.",
+            "Promote walking meetings at work.",
+            "Use solar-powered chargers for devices.",
+            "Take the stairs instead of the lift.",
+            "Travel with reusable utensils and cups.",
+            "Pick scenic walking routes over taxis.",
+            "Learn about local eco-friendly initiatives.",
         ];
+        
 
         let currentTipIndex = 0;
 
         function updateTip() {
-            tipsDiv.textContent = tips[currentTipIndex];
-            currentTipIndex = (currentTipIndex + 1) % tips.length;
+            const randomIndex = Math.floor(Math.random() * tips.length);
+            tipsDiv.textContent = tips[randomIndex]; 
         }
 
         updateTip();
