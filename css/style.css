@@ -369,7 +369,7 @@ body.dark-mode .form-group textarea::placeholder {
 
 /* Dark Mode Styling */
 body.dark-mode #toggle-navbar {
-    background: #555;
+    background: #333;
     color: white;
 }
 
