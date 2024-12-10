@@ -11,6 +11,16 @@ html {
     line-height: 1.6;
 }
 
+/* Heaedings */
+h2, h3
+{
+    color: #65a765
+}
+
+.travel-tips {
+    color: white;
+}
+
 /* Header */
 header {
     background-color: #4CAF50;
@@ -258,6 +268,12 @@ button:hover {
 /* Dark Mode */
 body.dark-mode {
     background-color: #121212;
+    color: white;
+}
+
+
+body.dark-mode h2, 
+body.dark-mode h3 {
     color: white;
 }
 
