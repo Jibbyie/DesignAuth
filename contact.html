@@ -12,14 +12,20 @@
 
 <body>
     <header>
-        <h1>Contact Us <button id="toggle-navbar" class="theme-icon" title="Toggle Navbar">☰</button></h1>
-        <h2 class="travel-tips">Travel Tips</h2>
+        <div class="header-container">
+            <a href="index.html">
+                <img src="images/Logo Main.svg" alt="Sustainable Travel Service Logo" class="logo">
+            </a>
+            <h1>Sustainable Travel Service</h1>
+            <button id="toggle-navbar" class="theme-icon" title="Toggle Navbar">☰</button>
+        </div>
+        <h3 class="travel-tips">Travel Tips</h3>
         <div id="travel-tips">Loading travel tips...</div>
         <nav id="main-nav">
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
             <a href="services.html">Services</a>
-            <a href="contact.html" class="active">Contact</a>
+            <a href="contact.html"class="active">Contact</a>
             <button id="theme-toggle" class="theme-icon" title="Toggle Dark Mode"><i class="fa fa-lightbulb-o"></i>
             </button>
         </nav>
@@ -29,6 +35,7 @@
         <section>
             <div class="intro-container">
                 <h2>We'd Love to Hear from You</h2>
+                <img src="images/contactus.png" alt="Contact Us Illustration" class="contact-illustration">
                 <p>
                     Have questions, feedback, or want to learn more about sustainable travel? Use the form below to get
                     in touch with our team.
@@ -77,6 +84,7 @@
         <!-- Recent Submissions Section -->
         <section id="recent-submissions">
             <h2>Recent Submissions</h2>
+            <img src="images/recentsubmissions.png" alt="Recent Submissions Icon" class="submissions-icon">
             <p>Here are some of the recent messages we've received from our users:</p>
             <ul id="submissions-list"></ul>
         </section>

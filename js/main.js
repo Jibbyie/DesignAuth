@@ -176,13 +176,13 @@ document.addEventListener('DOMContentLoaded', () => {
             "Pick scenic walking routes over taxis.",
             "Learn about local eco-friendly initiatives.",
         ];
-        
+
 
         let currentTipIndex = 0;
 
         function updateTip() {
             const randomIndex = Math.floor(Math.random() * tips.length);
-            tipsDiv.textContent = tips[randomIndex]; 
+            tipsDiv.textContent = tips[randomIndex];
         }
 
         updateTip();
@@ -239,7 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { question: "A bike-share programme: what is it?", answer: "A short-term bicycle sharing service that is frequently available in cities." },
         { question: "Green commuting: what is it?", answer: "Using environmentally friendly modes of transportation, such as walking, bicycling, or public transportation, is known as 'green commuting.'" },
         { question: "How can I locate lodging that is environmentally friendly?", answer: "When making hotel reservations, look for certifications like LEED or Green Key." },
-        { question: "How can I minimise my carbon footprint while travelling?", answer: "Avoid single-use plastics, take public transportation, and patronise sustainable, local companies." },
+        { question: "How can I minimise my carbon footprint while travelling?", answer: "Avoid single-use plastics, take public transportation, and visit sustainable, local companies." },
         { question: "Can eco-friendly travel be facilitated by electric vehicles?", answer: "Indeed, they can be fuelled by renewable energy sources and emit no tailpipe emissions." }
     ];
 
@@ -303,7 +303,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const navbarToggle = document.getElementById('toggle-navbar');
     const nav = document.getElementById('main-nav');
 
-    // Ensure elements exist before adding event listeners or modifying class
     if (navbarToggle && nav) {
         navbarToggle.addEventListener('click', () => {
             nav.classList.toggle('hidden');
@@ -313,6 +312,41 @@ document.addEventListener('DOMContentLoaded', () => {
         if (window.innerWidth <= 768) {
             nav.classList.add('hidden');
         }
+    }
+    const irelandMapDiv = document.getElementById('irelandMapDiv');
+    if (irelandMapDiv) {
+        // Initialize the map
+        const irelandMap = L.map('irelandMapDiv').setView([53.4, -7.9], 7); // Centre Ireland
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(irelandMap);
+
+        // Define markers and their content
+        const locations = [
+            {
+                coords: [53.349805, -6.26031], // Dublin
+                content: `<h3>Dublin</h3><p>Explore sustainable travel options in the bustling capital city, including bike-share programs and public transport.</p>`
+            },
+            {
+                coords: [51.898514, -8.475603], // Cork
+                content: `<h3>Cork</h3><p>Cork offers eco-friendly bus networks and cycle-friendly routes for sustainable commuting.</p>`
+            },
+            {
+                coords: [54.597285, -5.93012], // Belfast
+                content: `<h3>Belfast</h3><p>Belfast supports green travel with pedestrian-friendly zones and electric vehicle charging stations.</p>`
+            },
+            {
+                coords: [53.272194, -9.048889], // Galway
+                content: `<h3>Galway</h3><p>Galway encourages walking and cycling as part of its green transport initiatives.</p>`
+            }
+        ];
+
+        // Add markers to the map
+        locations.forEach(({ coords, content }) => {
+            L.marker(coords).addTo(irelandMap).bindPopup(content);
+        });
     }
 
 });

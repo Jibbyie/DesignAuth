@@ -14,8 +14,14 @@
 
 <body>
     <header>
-        <h1>Services <button id="toggle-navbar" class="theme-icon" title="Toggle Navbar">☰</button></h1>
-        <h2 class="travel-tips">Travel Tips</h2>
+        <div class="header-container">
+            <a href="index.html">
+                <img src="images/Logo Main.svg" alt="Sustainable Travel Service Logo" class="logo">
+            </a>
+            <h1>Sustainable Travel Service</h1>
+            <button id="toggle-navbar" class="theme-icon" title="Toggle Navbar">☰</button>
+        </div>
+        <h3 class="travel-tips">Travel Tips</h3>
         <div id="travel-tips">Loading travel tips...</div>
         <nav id="main-nav">
             <a href="index.html">Home</a>
@@ -30,17 +36,8 @@
         <!-- Introduction Section -->
         <section>
             <h2>Explore Our Services</h2>
-            <p>
-                We at Sustainable Travel provide a wide range of services to assist you in making more informed
-                decisions about your commute.
-                Our mission is to streamline eco-friendly travel so that it is not only convenient and pleasurable for
-                all, but also ecologically friendly.
-            </p>
-            <p>
-                Whether you are a staff member, student, or member of the community, our services are intended to
-                support your path to a more environmentally friendly future. We are available to assist you with every
-                stage of your journey, from reasonably priced bike rentals to state-of-the-art route planning software.
-            </p>
+            <p>Discover eco-friendly commuting options tailored for convenience and sustainability.</p>
+            <img src="images/nature.png" alt="Person commuting sustainably" class="services-image">
         </section>
 
 
@@ -51,47 +48,39 @@
                 One of the most effective and environmentally friendly methods to commute is by bicycle. We provide a
                 range of rental alternatives that are suited to your needs in order to make biking accessible to
                 everyone:
-
-
             </p>
             <ul>
                 <li><strong>Road Bikes:</strong> Perfect for long commutes and efficient travel.</li>
                 <li><strong>Mountain Bikes:</strong> Ideal for rugged terrain and outdoor adventures.</li>
                 <li><strong>Hybrid Bikes:</strong> A versatile option for urban and campus commuting.</li>
             </ul>
-            <label for="bike-type">Select a bike type to get started:</label>
-            <select id="bike-type" name="bike-type">
-                <!-- Options are dynamically generated -->
-            </select>
-            <p>
-                Our bike rentals are affordable, dependable, and handy. Everything you need to make riding your primary
-                mode of transportation will be available to you, including maintenance support and flexible rental
-                terms.
-            </p>
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <label for="bike-type">Select a bike type to get started:</label>
+                <select id="bike-type" name="bike-type">
+                    <!-- Options are dynamically generated -->
+                </select>
+                <div class="bike-icons">
+                    <img src="images/roadbike.png" alt="Road Bike Icon">
+                    <img src="images/mountainbike.png" alt="Mountain Bike Icon">
+                    <img src="images/hybridbike.png" alt="Hybrid Bike Icon">
+                </div>
+            </div>
         </section>
-
 
         <!-- Route Planning Section -->
         <section>
             <h2>Route Planning</h2>
-            <p>
-                Our route planning tools make it simple to organize your commute. Whether you prefer
-                walking, bicycle, or public transportation, we provide the resources you need to plan the most efficient
-                and environmentally friendly trips.
-            </p>
+            <p>Plan your journey with these tools:</p>
             <ul>
-                <li><strong>Walking and Cycling:</strong> Discover the safest and most scenic routes to your
-                    destination.</li>
-                <li><strong>Public Transport:</strong>Get up-to-date bus, luas and train schedules and route maps.</li>
-                <li><strong>Multi-Modal Options:</strong>For longer commutes, combine riding a bike with public
-                    transportation.
-                    You may begin your day with confidence, knowing that you're choosing the best course of action for
-                    both the environment and your schedule.</li>
+                <li>Safest routes for walking and cycling.</li>
+                <li>Up-to-date public transport schedules.</li>
+                <li>Combine bike rides with public transport.</li>
             </ul>
             <p>
                 Knowing that you're making the best decisions for the environment and your schedule, you can start your
                 day with confidence.
             </p>
+            <img src="images/routeplanning.png" alt="Cute suitcase" class="services-image">
         </section>
 
 
@@ -121,7 +110,7 @@
             <h2>Join Our Community Initiatives</h2>
             <p>
                 Sustainable travel is a movement rather than only a decision. We invite you to take part in our
-                neighborhood-based programs, which are intended to motivate action and promote relationships:
+                neighbourhood-based programs, which are intended to motivate action and promote relationships:
             </p>
             <ul>
                 <li><strong>Step Challenges:</strong> Monitor your progress, engage in peer competition, and adopt an
@@ -140,11 +129,8 @@
         <!-- Call to Action Section -->
         <section>
             <h2>Take Action</h2>
-            <p>
-                Are you prepared to change? Examine the services we provide and become a part of the shift to a more
-                sustainable future. We are available to help you at any stage, whether you are planning a new route,
-                trying riding for the first time, or participating in community projects.
-            </p>
+            <p>Join the movement towards sustainable travel today!</p>
+            <img src="images/communityaction.png" alt="Community chat bubble" class="services-image">
             <a href="contact.html" class="btn">Contact Us to Get Started</a>
         </section>
 

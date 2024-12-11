@@ -1,47 +1,155 @@
-/* Global Reset */
 body,
 html {
-    font-family: 'Arial', sans-serif;
+    font-family: 'San Francisco', sans-serif;
     margin: 0;
     padding: 0;
     height: 100%;
     overflow-x: hidden;
-    overscroll-behavior: none; /* Prevent browser's default overscroll effects */
-    touch-action: manipulation; /* Prevent unintended gestures on touch devices */
+    overscroll-behavior: none;
+    touch-action: manipulation;
     line-height: 1.6;
+    background-color: #B1D78A;
+    color: #3F7057;
 }
 
-/* Heaedings */
-h2, h3
-{
-    color: #65a765
+/* Image Styling for About Page */
+.hero-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 15px;
 }
 
+/* Inline Images (Mission and Vision) */
+.inline-img {
+    max-width: 50%;
+    height: auto;
+    float: right;
+    margin-left: 15px;
+    border-radius: 8px;
+}
+
+/* FAQ Banner */
+.faq-banner {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+/* Services Page Images */
+.services-image {
+    width: 100%;
+    height: auto;
+    margin: 15px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.bike-icons {
+    display: flex;
+    gap: 5px;
+}
+
+.bike-icons img {
+    width: 40px; /* Adjust size for small icons */
+    height: auto;
+    border-radius: 5px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Contact Us Page images and icons */
+.contact-illustration {
+    width: 100%;
+    max-width: 300px;
+    margin: 10px auto;
+    display: block;
+}
+
+.form-icon {
+    width: 50px;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+.submissions-icon {
+    width: 40px;
+    margin: 10px auto;
+    display: block;
+}
+
+/* Home Page banner and icon*/
+.hero-banner {
+    width: 100%;
+    max-width: 600px;
+    margin: 10px auto;
+    display: block;
+    border-radius: 8px;
+}
+
+.map-icon {
+    width: 30px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+
+/* Links */
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: black;
+}
+
+/* Headings */
+h2,
+h3 {
+    color: #3F7057;
+}
+
+/* Hero Section Heading */
 .travel-tips {
     color: white;
 }
 
 /* Header */
 header {
-    background-color: #4CAF50;
+    background-color: #266770;
     color: white;
     text-align: center;
-    padding: 1px 0;
+    padding: 10px 0;
     font-size: 1.4rem;
 }
 
-/* Header Styling for Mobile */
-header h1 {
+/* Header Container */
+.header-container {
     display: flex;
-    justify-content: center; 
-    align-items: center; 
-    position: relative;
-    text-align: center;
-    border-bottom: 1px solid white;
-    padding-bottom: 10px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #266770;
 }
 
-/* Navigation Bar (Integrated with Header) */
+/* Logo Styling */
+.logo {
+    width: 50px;
+    height: auto;
+    margin-right: 15px;
+}
+
+/* Header Title */
+header h1 {
+    font-size: 1.5rem;
+    color: white;
+    margin: 0;
+    flex-grow: 1;
+    text-align: center;
+}
+
+/* Navigation Bar */
 nav {
     display: flex;
     justify-content: center;
@@ -58,29 +166,27 @@ nav a {
 }
 
 nav a:hover {
-    color: yellow;
+    color: #EAEC8E;
+    /* Hover colour */
 }
 
-/* Mobile-Only Navbar Toggle Button */
+/* Navbar Toggle Button */
 #toggle-navbar {
-    display: none;
-    padding: 5px 5px;
-    z-index: 1000;
-    background: #4CAF50;
-    color: white;
+    display: block;
+    position: relative;
+    right: 0;
+    /* Match header background */
     border: none;
     font-size: 1.2rem;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* Subtle shadow for depth */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    padding: 5px 10px;
+    z-index: 1000;
 }
 
 #toggle-navbar:hover {
-    background: #45a049;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    color: white;
+    background: black;
 }
-
 
 /* Hidden class to hide the nav */
 .hidden {
@@ -100,14 +206,16 @@ main {
 footer {
     text-align: center;
     padding: 15px 10px;
-    background: #f1f1f1;
+    background: #B1D78A;
+    /* Match page background */
     width: 100%;
     position: sticky;
     bottom: 0;
     z-index: 1000;
     font-size: 0.9rem;
-    color: #333;
-    border-top: 1px solid #ccc;
+    color: #3F7057;
+    border-top: 1px solid #3F7057;
+    /* Footer divider */
 }
 
 /* Form Styling */
@@ -124,8 +232,7 @@ form {
     margin-bottom: 20px;
 }
 
-#travel-tips
-{
+#travel-tips {
     font-size: 1.0rem;
 }
 
@@ -133,14 +240,15 @@ label {
     display: block;
     font-weight: 600;
     margin-bottom: 8px;
-    color: #222;
+    color: #3F7057;
+    /* Form label colour */
 }
 
 input,
 textarea {
     width: 100%;
     padding: 12px;
-    border: 1px solid #ccc;
+    border: 1px solid #3F7057;
     border-radius: 4px;
     font-size: 15px;
     box-sizing: border-box;
@@ -148,9 +256,10 @@ textarea {
 }
 
 input:focus,
-textarea:focus {
-    border-color: #4CAF50;
-    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+textarea:focus,
+#faq-search:focus {
+    border-color: #266770;
+    box-shadow: 0 0 5px rgba(38, 103, 112, 0.5);
     outline: none;
 }
 
@@ -161,7 +270,7 @@ textarea {
 button {
     width: 100%;
     padding: 12px 16px;
-    background: #4CAF50;
+    background: #266770;
     color: white;
     font-size: 15px;
     border: none;
@@ -171,42 +280,47 @@ button {
 }
 
 button:hover {
-    background: #45a049;
+    background: #EAEC8E;
+    color: #266770;
     transform: scale(1.02);
 }
 
+/* Ireland Map Section */
+#irelandMapDiv {
+    width: 100%;
+    height: 500px;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
 
-/* FAQ Section */
+
+/* FAQ Styling */
 #faq-search {
     width: 100%;
     max-width: 400px;
     margin: 12px 0;
     padding: 10px;
     font-size: 16px;
-    border: 1px solid #ccc;
+    border: 1px solid #3F7057;
     border-radius: 6px;
     box-sizing: border-box;
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-#faq-search:focus {
-    border-color: #4CAF50;
-    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
-    outline: none;
-}
 
 #faq-dropdown {
     list-style: none;
     margin: 10px 0;
     padding: 0;
-    border: 1px solid #ccc;
+    border: 1px solid #3F7057;
     border-radius: 6px;
     background: white;
     max-width: 400px;
     display: none;
     position: relative;
     z-index: 1000;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 #faq-dropdown li {
@@ -217,14 +331,16 @@ button:hover {
 }
 
 #faq-dropdown li:hover {
-    background-color: #f9f9f9;
+    background-color: #266770;
+    color: white;
+    /* Dropdown hover */
 }
 
 #faq-result {
     margin-top: 20px;
     font-size: 16px;
     line-height: 1.6;
-    color: black;
+    color: #3F7057;
 }
 
 
@@ -234,7 +350,7 @@ button:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #4CAF50;
+    background-color: #266770;
     color: white;
     font-size: 16px;
     padding: 15px 25px;
@@ -247,8 +363,7 @@ button:hover {
 }
 
 /* Submissions List */
-#submissions-list
-{
+#submissions-list {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -257,8 +372,7 @@ button:hover {
     word-break: break-word;
 }
 
-#submissions-list li
-{
+#submissions-list li {
     white-space: normal;
     padding: 10px;
     margin-bottom: 5px;
@@ -267,78 +381,108 @@ button:hover {
 
 /* Dark Mode */
 body.dark-mode {
-    background-color: #121212;
-    color: white;
+    background-color: #1D435E;
+    color: #EAEC8E;
 }
 
-
-body.dark-mode h2, 
+body.dark-mode h2,
 body.dark-mode h3 {
-    color: white;
+    color: #EAEC8E;
+}
+
+body.dark-mode .header-container {
+    background-color: #B1D78A;
+}
+
+/* Header Text in Dark Mode */
+body.dark-mode .header-container h1 {
+    color: #1D435E;
+}
+
+/* Travel Tips Text in Dark Mode */
+body.dark-mode h3.travel-tips {
+    color: #1D435E;
+}
+
+/* Navigation Text in Dark Mode */
+body.dark-mode nav a {
+    color: #1D435E;
+}
+
+body.dark-mode nav a:hover {
+    color: #EAEC8E;
 }
 
 header.dark-mode,
 footer.dark-mode,
 nav.dark-mode {
-    background-color: #1e1e1e;
-    color: white;
+    background-color: #B1D78A;
+    color: #1D435E;
 }
 
 /* Buttons in Dark Mode */
 body.dark-mode button {
-    background-color: #555;
-    color: white;
+    background-color: #B1D78A;
+    color: #1D435E;
 }
 
 body.dark-mode button:hover {
-    background-color: #777;
+    background-color: #266770;
 }
 
 /* Form in Dark Mode */
 body.dark-mode form {
-    background-color: #1e1e1e;
+    background-color: #1D435E;
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
 }
 
 body.dark-mode label {
-    color: white;
+    color: #EAEC8E;
 }
 
 body.dark-mode input,
 body.dark-mode textarea {
-    background-color: #333;
-    color: white;
-    border: 1px solid #555;
+    background-color: #1D435E;
+    color: #EAEC8E;
+    border: 1px solid #EAEC8E;
 }
 
 body.dark-mode input::placeholder,
 body.dark-mode textarea::placeholder {
-    color: #999;
+    color: #EAEC8E;
 }
 
 /* FAQ Section in Dark Mode */
 body.dark-mode #faq-search,
 body.dark-mode #faq-dropdown {
-    background: #333;
-    color: white;
-    border: 1px solid #555;
+    background-color: #1D435E;
+    color: #EAEC8E;
+    border: 1px solid #EAEC8E;
 }
 
+body.dark-mode input:focus,
+body.dark-mode textarea:focus,
+body.dark-mode #faq-search:focus {
+    border-color: #B1D78A;
+    box-shadow: 0 0 5px rgba(177, 215, 138, 0.5);
+    outline: none;
+}
 
 /* FAQ Text - Dark Mode */
 body.dark-mode #faq-result,
 body.dark-mode #faq-dropdown li {
-    color: white;
+    color: #EAEC8E;
 }
 
 body.dark-mode #faq-dropdown li:hover {
-    background-color: #444;
+    background-color: #B1D78A;
+    color: #1D435E;
 }
 
 /* Notification in Dark Mode */
 body.dark-mode .dropdown-notification {
-    background-color: #555;
-    color: white;
+    background-color: #1D435E;
+    color: #EAEC8E;
     box-shadow: 0 6px 12px rgba(255, 255, 255, 0.1);
 }
 
@@ -356,42 +500,40 @@ button.theme-icon:hover {
     color: #FFD700;
 }
 
-/* Footer Links in Dark Mode */
+/* Footer in Dark Mode */
+footer.dark-mode {
+    background-color: #1D435E;
+    color: #EAEC8E;
+}
+
 footer.dark-mode a {
-    color: #CCCCCC;
+    color: #EAEC8E;
 }
 
 footer.dark-mode a:hover {
-    color: white;
+    color: #B1D78A;
     text-decoration: underline;
 }
 
 /* Responsive Form Adjustments for Dark Mode */
 body.dark-mode .form-container h2 {
-    color: white;
+    color: #EAEC8E;
 }
 
 body.dark-mode .form-group input,
 body.dark-mode .form-group textarea {
-    background-color: #333;
-    border: 1px solid #555;
-    color: white;
+    background-color: #1D435E;
+    border: 1px solid #EAEC8E;
+    color: #EAEC8E;
 }
 
 body.dark-mode .form-group input::placeholder,
 body.dark-mode .form-group textarea::placeholder {
-    color: #999;
+    color: #EAEC8E;
 }
 
 /* Dark Mode Styling */
-body.dark-mode #toggle-navbar {
-    background: #333;
-    color: white;
-}
-
-body.dark-mode #toggle-navbar:hover {
-    background: #777;
-}
+body.dark-mode #toggle-navbar {}
 
 
 /* Animations */
@@ -421,35 +563,43 @@ body.dark-mode #toggle-navbar:hover {
 }
 
 @media (max-width: 768px) {
+
     header {
         font-size: 0.65rem;
-        /* Adjust font size for smaller screens */
         position: sticky;
         top: 0;
         z-index: 1000;
-        background-color: #4CAF50;
+        background-color: #266770;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        color: white;
+    }
+
+    .header-container {
+        padding: 10px 15px;
+        flex-direction: row;
+    }
+
+    .logo {
+        width: 40px;
     }
 
     header h1 {
-        border-bottom: 1px solid white;
-        flex: 1;
-        text-align: center;
-        position: relative;
+        font-size: 1.2rem;
+        text-align: left;
+        flex-grow: unset;
+        color: white;
     }
 
     #toggle-navbar {
-        display: block;
-        margin-bottom: 5px;
-        position: absolute; 
         right: 10px;
+        color: white;
     }
 
     nav {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 5px;
         padding: 5px;
+        background-color: #266770;
+        color: white;
     }
 
     nav a {
@@ -459,25 +609,123 @@ body.dark-mode #toggle-navbar:hover {
         text-align: left;
         border-bottom: 1px solid white;
         margin-bottom: 5px;
+        color: white;
     }
 
     /* Active Navbar Link */
     nav a.active {
-        background-color: #FFD700;
-        color: black;
+        background-color: #B1D78A;
+        color: #1D435E;
     }
 
     main {
+        margin-top: 70px;
         padding: 20px;
         margin-bottom: 20px;
-        /* Adjust bottom margin for spacing */
+        background-color: #B1D78A;
+        color: #3F7057;
     }
 
     footer {
         position: static;
-        /* Ensure footer is below all content */
         padding: 15px;
         font-size: 0.9rem;
-        /* Slightly smaller footer text for mobile */
+        background-color: #B1D78A;
+        color: #3F7057;
+        border-top: 1px solid #3F7057;
+    }
+
+    /* Header Styling in Dark Mode */
+    body.dark-mode header {
+        background-color: #B1D78A;
+        color: #1D435E;
+    }
+
+    body.dark-mode .header-container {
+        background-color: #B1D78A;
+    }
+
+    /* Header Title in Dark Mode */
+    body.dark-mode header h1 {
+        background-color: #B1D78A;
+        color: #1D435E;
+    }
+
+    /* Navigation Bar in Dark Mode */
+    body.dark-mode nav {
+        background-color: #B1D78A;
+    }
+
+    body.dark-mode nav a {
+        color: #1D435E;
+        border-bottom: 1px solid #1D435E;
+    }
+
+    body.dark-mode nav a.active {
+        background-color: #1D435E;
+        color: #EAEC8E;
+        border-bottom: 1px solid #EAEC8E;
+    }
+
+    body.dark-mode h3.travel-tips {
+        background-color: #B1D78A;
+        color: #1D435E;
+    }
+
+    /* Main Content Background and Text in Dark Mode */
+    body.dark-mode main {
+        background-color: #1D435E;
+        color: #EAEC8E;
+    }
+
+    /* Footer Styling in Dark Mode */
+    body.dark-mode footer {
+        background-color: #1D435E;
+        color: #EAEC8E;
+    }
+
+    /* FAQ Section in Dark Mode */
+    body.dark-mode #faq-search,
+    body.dark-mode #faq-dropdown {
+        background-color: #1D435E;
+        color: #EAEC8E;
+        border: 1px solid #EAEC8E;
+    }
+
+    body.dark-mode #faq-dropdown li:hover {
+        background-color: #266770;
+    }
+
+    body.dark-mode .form-container h2 {
+        color: #EAEC8E;
+    }
+
+    /* Forms in Dark Mode */
+    body.dark-mode form {
+        background-color: #1D435E;
+    }
+
+    body.dark-mode label {
+        color: #EAEC8E;
+    }
+
+    body.dark-mode input,
+    body.dark-mode textarea {
+        background-color: #1D435E;
+        color: #EAEC8E;
+        border: 1px solid #EAEC8E;
+    }
+
+    body.dark-mode input:focus,
+    body.dark-mode textarea:focus,
+    body.dark-mode #faq-search:focus {
+        border-color: #B1D78A;
+        box-shadow: 0 0 5px rgba(177, 215, 138, 0.5);
+        outline: none;
+    }
+
+    body.dark-mode input::placeholder,
+    body.dark-mode textarea::placeholder {
+        color: #EAEC8E;
     }
 }
